@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Questionnaire</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+        color: #333;
+    }
+
+    form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    label {
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #5cb85c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #4cae4c;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 10px;
+        }
+
+        form {
+            padding: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<form action="/predict" method="post">
+  <label for="age">Age:</label>
+  <input type="number" id="age" name="age"><br><br>
+
+  <label for="gender">Gender (1 for male, 2 for female, etc.):</label>
+  <input type="number" id="gender" name="gender"><br><br>
+
+  <label for="airPollution">Air Pollution (1-10):</label>
+  <input type="number" id="airPollution" name="airPollution" min="1" max="10"><br><br>
+
+  <label for="alcoholUse">Alcohol use (1-10):</label>
+  <input type="number" id="alcoholUse" name="alcoholUse" min="1" max="10"><br><br>
+
+  <label for="dustAllergy">Dust Allergy (1-10):</label>
+  <input type="number" id="dustAllergy" name="dustAllergy" min="1" max="10"><br><br>
+
+  <label for="occupationalHazards">Occupational Hazards (1-10):</label>
+  <input type="number" id="occupationalHazards" name="occupationalHazards" min="1" max="10"><br><br>
+
+  <label for="geneticRisk">Genetic Risk (1-10):</label>
+  <input type="number" id="geneticRisk" name="geneticRisk" min="1" max="10"><br><br>
+
+  <label for="chronicLungDisease">Chronic Lung Disease (1-10):</label>
+  <input type="number" id="chronicLungDisease" name="chronicLungDisease" min="1" max="10"><br><br>
+
+  <label for="balancedDiet">Balanced Diet (1-10):</label>
+  <input type="number" id="balancedDiet" name="balancedDiet" min="1" max="10"><br><br>
+
+  <label for="obesity">Obesity (1-10):</label>
+  <input type="number" id="obesity" name="obesity" min="1" max="10"><br><br>
+
+  <label for="smoking">Smoking (1-10):</label>
+  <input type="number" id="smoking" name="smoking" min="1" max="10"><br><br>
+
+  <label for="passiveSmoker">Passive Smoker (1-10):</label>
+  <input type="number" id="passiveSmoker" name="passiveSmoker" min="1" max="10"><br><br>
+
+  <label for="chestPain">Chest Pain (1-10):</label>
+  <input type="number" id="chestPain" name="chestPain" min="1" max="10"><br><br>
+
+  <label for="coughingOfBlood">Coughing of Blood (1-10):</label>
+  <input type="number" id="coughingOfBlood" name="coughingOfBlood" min="1" max="10"><br><br>
+
+  <label for="fatigue">Fatigue (1-10):</label>
+  <input type="number" id="fatigue" name="fatigue" min="1" max="10"><br><br>
+
+  <label for="weightLoss">Weight Loss (1-10):</label>
+  <input type="number" id="weightLoss" name="weightLoss" min="1" max="10"><br><br>
+
+  <label for="shortnessOfBreath">Shortness of Breath (1-10):</label>
+  <input type="number" id="shortnessOfBreath" name="shortnessOfBreath" min="1" max="10"><br><br>
+
+  <label for="wheezing">Wheezing (01-10):</label>
+  <input type="number" id="wheezing" name="wheezing" min="1" max="10"><br><br>
+
+  <label for="swallowingDifficulty">Swallowing Difficulty (1-10):</label>
+  <input type="number" id="swallowingDifficulty" name="swallowingDifficulty" min="1" max="10"><br><br>
+
+  <label for="clubbingOfFingerNails">Clubbing of Finger Nails (1-10):</label>
+  <input type="number" id="clubbingOfFingerNails" name="clubbingOfFingerNails" min="1" max="10"><br><br>
+
+  <label for="frequentCold">Frequent Cold (1-10):</label>
+  <input type="number" id="frequentCold" name="frequentCold" min="1" max="10"><br><br>
+
+  <label for="dryCough">Dry Cough (1-10):</label>
+  <input type="number" id="dryCough" name="dryCough" min="1" max="10"><br><br>
+
+  <label for="snoring">Snoring (1-10):</label>
+  <input type="number" id="snoring" name="snoring" min="1" max="10"><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+{% if prediction_text %} <!-- This section will display the prediction result -->
+<div>
+    <h3>Prediction Result:</h3>
+    <p>{{ prediction_text }}</p>
+</div>
+{% endif %}
+
+</body>
+</html>
